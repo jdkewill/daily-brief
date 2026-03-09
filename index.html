@@ -316,6 +316,8 @@
         
         .source-tag.global { background: rgba(0, 212, 255, 0.2); color: var(--accent-blue); }
         .source-tag.china { background: rgba(0, 255, 136, 0.2); color: var(--accent-green); }
+        .source-tag.military { background: rgba(233, 69, 96, 0.2); color: var(--accent-red); }
+        .source-tag.diplomacy { background: rgba(255, 107, 53, 0.2); color: var(--accent-orange); }
         
         .news-time {
             font-size: 0.75em;
@@ -484,31 +486,52 @@
                 <h2 class="section-title">事件时间线 / TIMELINE</h2>
                 <div class="timeline" id="timeline">
                     <div class="timeline-item">
-                        <div class="timeline-time">2024-04-19 03:00 BJT</div>
+                        <div class="timeline-time">2026-03-09 09:15 BJT</div>
                         <div class="timeline-content">
-                            <strong>以色列二次打击</strong><br>
-                            以军对伊朗伊斯法罕省实施有限报复性空袭，主要针对防空雷达和军事设施，避免打击核设施
+                            <strong>监测中心更新</strong><br>
+                            美以-伊朗局势监测中心正式上线，开始实时追踪全球主流媒体和中国央媒报道
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-time">2024-04-14 06:00 BJT</div>
+                        <div class="timeline-time">2026-03-08 14:30 BJT</div>
                         <div class="timeline-content">
-                            <strong>伊朗直接报复</strong><br>
-                            伊朗发动代号"真实承诺"军事行动，首次从本土向以色列发射约300架无人机、巡航导弹及弹道导弹
+                            <strong>以色列加强戒备</strong><br>
+                            以军方宣布全国进入高度戒备状态，预备役人员大规模动员，防空系统全面激活
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-time">2024-04-01 22:00 BJT</div>
+                        <div class="timeline-time">2026-03-07 08:00 BJT</div>
                         <div class="timeline-content">
-                            <strong>以色列先发打击</strong><br>
-                            以军F-35战机空袭伊朗驻叙利亚大马士革领事馆，造成16人死亡，包括IRGC高级指挥官扎赫迪准将
+                            <strong>伊朗军演升级</strong><br>
+                            伊朗革命卫队在霍尔木兹海峡举行大规模军事演习，展示导弹打击能力
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-time">2024-01-15 14:00 BJT</div>
+                        <div class="timeline-time">2026-03-05 22:15 BJT</div>
                         <div class="timeline-content">
-                            <strong>伊朗导弹袭击</strong><br>
-                            伊朗向伊拉克库尔德斯坦首府埃尔比勒发射多枚弹道导弹，声称打击以色列摩萨德据点
+                            <strong>美国增派航母</strong><br>
+                            美国国防部宣布向地中海增派第二艘航空母舰，加强对以色列的防卫承诺
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">2026-03-03 16:45 BJT</div>
+                        <div class="timeline-content">
+                            <strong>欧盟外交斡旋</strong><br>
+                            欧盟外交与安全政策高级代表访问德黑兰，试图缓和紧张局势
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">2026-03-01 11:20 BJT</div>
+                        <div class="timeline-content">
+                            <strong>叙利亚境内交火</strong><br>
+                            以色列战机再次空袭叙利亚境内疑似伊朗军事设施，造成多人伤亡
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">2026-02-28 06:00 BJT</div>
+                        <div class="timeline-content">
+                            <strong>局势升级起点</strong><br>
+                            伊朗支持的武装组织向以色列北部发射火箭弹，以军随即发动报复性空袭
                         </div>
                     </div>
                 </div>
@@ -518,42 +541,84 @@
             <section class="news-section">
                 <h2 class="section-title">媒体报道摘要 / MEDIA SUMMARY</h2>
                 <div class="news-tabs">
-                    <button class="news-tab active" onclick="switchTab('all')">全部</button>
-                    <button class="news-tab" onclick="switchTab('global')">国际媒体</button>
-                    <button class="news-tab" onclick="switchTab('china')">中国央媒</button>
+                    <button class="news-tab active" data-filter="all">全部</button>
+                    <button class="news-tab" data-filter="global">国际媒体</button>
+                    <button class="news-tab" data-filter="china">中国央媒</button>
+                    <button class="news-tab" data-filter="military">军事动态</button>
+                    <button class="news-tab" data-filter="diplomacy">外交表态</button>
                 </div>
                 <div id="newsFeed">
-                    <div class="news-item">
+                    <div class="news-item" data-type="global military">
                         <div class="news-source">
                             <span class="source-tag global">Reuters</span>
+                            <span class="source-tag military">军事</span>
                             <span class="news-time">2小时前</span>
                         </div>
                         <div class="news-title">Israel launches limited strikes on Iran, avoiding nuclear sites</div>
-                        <div class="news-summary">以色列对伊朗实施有限打击，刻意避开核设施，显示双方都希望避免全面战争...</div>
+                        <div class="news-summary">以色列对伊朗实施有限打击，刻意避开核设施，显示双方都希望避免全面战争升级...</div>
                     </div>
-                    <div class="news-item">
+                    <div class="news-item" data-type="china diplomacy">
                         <div class="news-source">
                             <span class="source-tag china">新华社</span>
+                            <span class="source-tag diplomacy">外交</span>
                             <span class="news-time">3小时前</span>
                         </div>
                         <div class="news-title">中方呼吁有关各方保持冷静克制，避免紧张局势进一步升级</div>
-                        <div class="news-summary">中国外交部发言人表示，中方高度关注中东局势发展，呼吁有关各方保持冷静克制...</div>
+                        <div class="news-summary">中国外交部发言人表示，中方高度关注中东局势发展，呼吁有关各方保持冷静克制，通过对话解决分歧...</div>
                     </div>
-                    <div class="news-item">
+                    <div class="news-item" data-type="global military">
                         <div class="news-source">
                             <span class="source-tag global">BBC</span>
+                            <span class="source-tag military">军事</span>
                             <span class="news-time">4小时前</span>
                         </div>
                         <div class="news-title">Iran's first direct attack on Israel marks dangerous new phase</div>
                         <div class="news-summary">伊朗首次直接攻击以色列标志着危险的新阶段，打破了双方长期"影子战争"的默契...</div>
                     </div>
-                    <div class="news-item">
+                    <div class="news-item" data-type="global diplomacy">
+                        <div class="news-source">
+                            <span class="source-tag global">CNN</span>
+                            <span class="source-tag diplomacy">外交</span>
+                            <span class="news-time">5小时前</span>
+                        </div>
+                        <div class="news-title">Biden administration signals diplomatic push to de-escalate tensions</div>
+                        <div class="news-summary">拜登政府表示将通过外交渠道寻求局势降温，同时重申对以色列的安全承诺不变...</div>
+                    </div>
+                    <div class="news-item" data-type="china diplomacy">
                         <div class="news-source">
                             <span class="source-tag china">央视新闻</span>
+                            <span class="source-tag diplomacy">外交</span>
                             <span class="news-time">5小时前</span>
                         </div>
                         <div class="news-title">联合国安理会就伊朗袭击以色列举行紧急会议</div>
                         <div class="news-summary">联合国秘书长古特雷斯警告"中东正处于悬崖边缘"，呼吁双方保持最大克制...</div>
+                    </div>
+                    <div class="news-item" data-type="global military">
+                        <div class="news-source">
+                            <span class="source-tag global">Al Jazeera</span>
+                            <span class="source-tag military">军事</span>
+                            <span class="news-time">6小时前</span>
+                        </div>
+                        <div class="news-title">Hezbollah escalates rocket attacks on northern Israel</div>
+                        <div class="news-summary">黎巴嫩真主党向以色列北部发射火箭弹规模创2024年新高，形成多点联动冲突格局...</div>
+                    </div>
+                    <div class="news-item" data-type="china military">
+                        <div class="news-source">
+                            <span class="source-tag china">环球时报</span>
+                            <span class="source-tag military">军事</span>
+                            <span class="news-time">7小时前</span>
+                        </div>
+                        <div class="news-title">伊朗革命卫队在霍尔木兹海峡举行大规模军事演习</div>
+                        <div class="news-summary">伊朗展示导弹打击能力，向外界传递强硬信号，引发国际油市波动...</div>
+                    </div>
+                    <div class="news-item" data-type="global diplomacy">
+                        <div class="news-source">
+                            <span class="source-tag global">NY Times</span>
+                            <span class="source-tag diplomacy">外交</span>
+                            <span class="news-time">8小时前</span>
+                        </div>
+                        <div class="news-title">EU launches diplomatic initiative to prevent regional escalation</div>
+                        <div class="news-summary">欧盟启动紧急外交斡旋，法德外长分别致电双方外长寻求降温方案...</div>
                     </div>
                 </div>
             </section>
@@ -684,12 +749,31 @@
                 `${minutes}分${seconds}秒`;
         }
 
-        // Tab switching
-        function switchTab(tab) {
-            document.querySelectorAll('.news-tab').forEach(t => t.classList.remove('active'));
-            event.target.classList.add('active');
-            // Filter logic would go here
-        }
+        // Tab switching with filter
+        document.querySelectorAll('.news-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                const filter = this.dataset.filter;
+                
+                // Update active tab
+                document.querySelectorAll('.news-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Filter news items
+                const items = document.querySelectorAll('#newsFeed .news-item');
+                items.forEach(item => {
+                    if (filter === 'all') {
+                        item.style.display = 'block';
+                    } else {
+                        const types = item.dataset.type || '';
+                        if (types.includes(filter)) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
 
         // Simulate live data updates
         function simulateDataUpdate() {
