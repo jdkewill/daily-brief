@@ -3,24 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>美以对伊朗军事行动监测 | US-Israel Military Operations Monitor</title>
+    <title>美以袭击伊朗专题监控 | IRAN WAR MONITOR</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #0a0a0f;
-            --bg-secondary: #12121a;
-            --bg-card: #1a1a25;
-            --accent-red: #e94560;
-            --accent-orange: #ff6b35;
-            --accent-blue: #00d4ff;
-            --accent-green: #00ff88;
+            --bg-primary: #0d0d12;
+            --bg-secondary: #16161d;
+            --bg-card: #1e1e28;
+            --accent-red: #ff3b30;
+            --accent-orange: #ff9500;
+            --accent-blue: #0a84ff;
+            --accent-cyan: #64d2ff;
+            --accent-green: #30d158;
+            --accent-purple: #bf5af2;
             --text-primary: #ffffff;
-            --text-secondary: #a0a0b0;
-            --text-muted: #606070;
-            --border: #2a2a3a;
-            --glow-red: 0 0 20px rgba(233, 69, 96, 0.3);
-            --glow-blue: 0 0 20px rgba(0, 212, 255, 0.3);
+            --text-secondary: #9898a0;
+            --text-muted: #636366;
+            --border: #2c2c3a;
+            --glow-red: 0 0 30px rgba(255, 59, 48, 0.4);
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -31,180 +32,161 @@
             color: var(--text-primary);
             min-height: 100vh;
             line-height: 1.6;
-            background-image: 
-                radial-gradient(circle at 20% 50%, rgba(233, 69, 96, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.05) 0%, transparent 50%);
         }
         
-        .container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
         
         /* Header */
         .header {
             text-align: center;
-            padding: 40px 20px;
+            padding: 30px 20px;
+            background: linear-gradient(180deg, rgba(255,59,48,0.1) 0%, transparent 100%);
             border-bottom: 1px solid var(--border);
-            position: relative;
-            overflow: hidden;
+            margin-bottom: 30px;
         }
         
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--accent-red), var(--accent-orange), transparent);
-            animation: scanline 3s linear infinite;
-        }
-        
-        @keyframes scanline {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
+        .header-badge {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--accent-red), var(--accent-orange));
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.75em;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            font-family: 'JetBrains Mono', monospace;
         }
         
         .header h1 {
-            font-size: 2.5em;
+            font-size: 2.2em;
             font-weight: 700;
-            background: linear-gradient(135deg, var(--accent-red), var(--accent-orange));
+            background: linear-gradient(135deg, #ff6b6b, #ff8e53);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
+            margin-bottom: 8px;
         }
         
-        .header .subtitle {
-            color: var(--text-secondary);
-            font-size: 0.95em;
-            margin-bottom: 20px;
-        }
-        
-        .status-bar {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-        
-        .status-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        .header-subtitle {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85em;
-            color: var(--text-secondary);
-        }
-        
-        .status-item .indicator {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--accent-green);
-            box-shadow: 0 0 10px var(--accent-green);
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-        
-        /* Stats Dashboard */
-        .stats-section { margin: 40px 0; }
-        
-        .section-title {
-            font-size: 1.2em;
-            color: var(--text-primary);
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-family: 'JetBrains Mono', monospace;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .section-title::before {
-            content: '▶';
+            font-size: 0.9em;
             color: var(--accent-red);
-            font-size: 0.8em;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+        
+        .header-desc {
+            color: var(--text-secondary);
+            font-size: 0.85em;
+        }
+        
+        .header-desc span {
+            margin: 0 10px;
+        }
+        
+        /* Stats Grid */
+        .stats-section {
+            margin: 30px 0;
         }
         
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
         }
         
         .stat-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 25px;
+            padding: 25px 20px;
+            text-align: center;
             position: relative;
             overflow: hidden;
-            transition: all 0.3s ease;
         }
         
         .stat-card::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0;
+            top: 0;
+            left: 0;
+            right: 0;
             height: 3px;
             background: linear-gradient(90deg, var(--accent-red), var(--accent-orange));
         }
         
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--glow-red);
-            border-color: var(--accent-red);
-        }
-        
-        .stat-label {
-            font-size: 0.8em;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .stat-icon {
+            font-size: 1.5em;
             margin-bottom: 10px;
-            font-family: 'JetBrains Mono', monospace;
         }
         
         .stat-value {
-            font-size: 2.5em;
+            font-size: 2.2em;
             font-weight: 700;
             color: var(--accent-red);
             font-family: 'JetBrains Mono', monospace;
+            text-shadow: 0 0 20px rgba(255, 59, 48, 0.3);
+        }
+        
+        .stat-label {
+            font-size: 0.85em;
+            color: var(--text-secondary);
+            margin-top: 8px;
         }
         
         .stat-change {
-            font-size: 0.85em;
-            margin-top: 8px;
+            font-size: 0.75em;
+            color: var(--text-muted);
+            margin-top: 5px;
+        }
+        
+        /* Timeline Section */
+        .section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .section-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent-red), var(--accent-orange));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+        }
+        
+        .section-title {
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+        
+        .section-title-en {
             font-family: 'JetBrains Mono', monospace;
-        }
-        
-        .stat-change.positive { color: var(--accent-green); }
-        .stat-change.negative { color: var(--accent-red); }
-        
-        /* Main Content Grid */
-        .content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin: 40px 0;
-        }
-        
-        @media (max-width: 900px) {
-            .content-grid { grid-template-columns: 1fr; }
+            font-size: 0.7em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
         
         /* Timeline */
-        .timeline-section {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 25px;
-        }
-        
         .timeline {
             position: relative;
             padding-left: 30px;
@@ -217,7 +199,7 @@
             top: 0;
             bottom: 0;
             width: 2px;
-            background: linear-gradient(180deg, var(--accent-red), transparent);
+            background: linear-gradient(180deg, var(--accent-red), var(--accent-orange), transparent);
         }
         
         .timeline-item {
@@ -230,494 +212,496 @@
             position: absolute;
             left: -26px;
             top: 5px;
-            width: 12px;
-            height: 12px;
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
             background: var(--bg-card);
-            border: 2px solid var(--accent-red);
-            box-shadow: 0 0 10px var(--accent-red);
+            border: 3px solid var(--accent-red);
+            box-shadow: 0 0 15px var(--accent-red);
         }
         
-        .timeline-time {
+        .timeline-date {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8em;
+            font-size: 0.75em;
             color: var(--accent-orange);
             margin-bottom: 5px;
         }
         
-        .timeline-content {
-            color: var(--text-secondary);
+        .timeline-title {
+            font-weight: 600;
             font-size: 0.95em;
-        }
-        
-        .timeline-content strong {
+            margin-bottom: 6px;
             color: var(--text-primary);
         }
         
-        /* News Feed */
-        .news-section {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 25px;
-        }
-        
-        .news-tabs {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 20px;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 15px;
-        }
-        
-        .news-tab {
-            padding: 8px 16px;
-            background: transparent;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            color: var(--text-secondary);
-            cursor: pointer;
-            transition: all 0.3s;
+        .timeline-content {
             font-size: 0.85em;
+            color: var(--text-secondary);
+            line-height: 1.6;
         }
         
-        .news-tab.active {
-            background: var(--accent-red);
-            border-color: var(--accent-red);
-            color: white;
-        }
-        
-        .news-item {
-            padding: 15px;
-            border-bottom: 1px solid var(--border);
-            transition: background 0.3s;
-        }
-        
-        .news-item:hover {
-            background: rgba(255,255,255,0.02);
-        }
-        
-        .news-item:last-child { border-bottom: none; }
-        
-        .news-source {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 8px;
-        }
-        
-        .source-tag {
+        .timeline-source {
+            display: inline-block;
+            margin-top: 8px;
             font-size: 0.7em;
             padding: 3px 8px;
+            background: rgba(255, 59, 48, 0.15);
+            color: var(--accent-red);
             border-radius: 4px;
             font-family: 'JetBrains Mono', monospace;
-            text-transform: uppercase;
         }
         
-        .source-tag.global { background: rgba(0, 212, 255, 0.2); color: var(--accent-blue); }
-        .source-tag.china { background: rgba(0, 255, 136, 0.2); color: var(--accent-green); }
-        .source-tag.military { background: rgba(233, 69, 96, 0.2); color: var(--accent-red); }
-        .source-tag.diplomacy { background: rgba(255, 107, 53, 0.2); color: var(--accent-orange); }
-        
-        .news-time {
-            font-size: 0.75em;
-            color: var(--text-muted);
-            font-family: 'JetBrains Mono', monospace;
-        }
-        
-        .news-title {
-            font-size: 0.95em;
-            color: var(--text-primary);
-            margin-bottom: 5px;
-        }
-        
-        .news-summary {
-            font-size: 0.85em;
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
-        
-        /* Media Monitoring */
-        .media-section {
-            margin: 40px 0;
-        }
-        
+        /* Media Monitor */
         .media-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
         }
         
-        .media-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
+        @media (max-width: 768px) {
+            .media-grid { grid-template-columns: 1fr; }
+        }
+        
+        .media-category {
+            background: rgba(255, 255, 255, 0.02);
             border-radius: 12px;
             padding: 20px;
         }
         
-        .media-header {
+        .media-category-header {
             display: flex;
             align-items: center;
             gap: 10px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             padding-bottom: 15px;
             border-bottom: 1px solid var(--border);
         }
         
-        .media-icon {
-            width: 40px;
-            height: 40px;
+        .media-category-icon {
+            width: 36px;
+            height: 36px;
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2em;
+            font-size: 1.1em;
         }
         
-        .media-icon.global { background: rgba(0, 212, 255, 0.1); }
-        .media-icon.china { background: rgba(0, 255, 136, 0.1); }
+        .media-category-icon.domestic { background: rgba(255, 59, 48, 0.15); }
+        .media-category-icon.international { background: rgba(10, 132, 255, 0.15); }
         
-        .media-title {
-            font-weight: 500;
+        .media-category-title {
+            font-weight: 600;
+            font-size: 0.95em;
         }
         
-        .media-count {
-            margin-left: auto;
+        .media-category-subtitle {
+            font-size: 0.7em;
+            color: var(--text-muted);
             font-family: 'JetBrains Mono', monospace;
-            font-size: 1.2em;
-            color: var(--accent-blue);
+        }
+        
+        .media-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+        
+        .media-stat {
+            text-align: center;
+            padding: 15px 10px;
+            background: var(--bg-primary);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        
+        .media-stat-value {
+            font-size: 1.4em;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .media-stat-value.red { color: var(--accent-red); }
+        .media-stat-value.blue { color: var(--accent-blue); }
+        .media-stat-value.cyan { color: var(--accent-cyan); }
+        .media-stat-value.green { color: var(--accent-green); }
+        .media-stat-value.purple { color: var(--accent-purple); }
+        .media-stat-value.orange { color: var(--accent-orange); }
+        
+        .media-stat-label {
+            font-size: 0.65em;
+            color: var(--text-muted);
+            margin-top: 5px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        /* Headlines */
+        .headlines-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .headline-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 10px;
+            border-left: 3px solid var(--accent-red);
+            transition: all 0.3s;
+        }
+        
+        .headline-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateX(5px);
+        }
+        
+        .headline-source {
+            flex-shrink: 0;
+            width: 80px;
+        }
+        
+        .headline-source-name {
+            font-size: 0.75em;
+            font-weight: 600;
+            color: var(--accent-red);
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .headline-source-time {
+            font-size: 0.65em;
+            color: var(--text-muted);
+            margin-top: 3px;
+        }
+        
+        .headline-content {
+            flex: 1;
+        }
+        
+        .headline-title {
+            font-size: 0.9em;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .headline-summary {
+            font-size: 0.8em;
+            color: var(--text-secondary);
+            line-height: 1.5;
         }
         
         /* Footer */
         .footer {
             text-align: center;
             padding: 30px;
-            border-top: 1px solid var(--border);
             margin-top: 40px;
+            border-top: 1px solid var(--border);
             color: var(--text-muted);
-            font-size: 0.85em;
+            font-size: 0.8em;
+        }
+        
+        .update-time {
             font-family: 'JetBrains Mono', monospace;
-        }
-        
-        .update-info {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            margin-top: 15px;
-        }
-        
-        .next-update {
             color: var(--accent-orange);
+            margin-top: 10px;
         }
         
         /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: var(--bg-secondary);
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: var(--border);
-            border-radius: 4px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--accent-red);
-        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-secondary); }
+        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent-red); }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- Header -->
         <header class="header">
-            <h1>⚡ 美以对伊朗军事行动监测</h1>
-            <div class="subtitle">US-ISRAEL MILITARY OPERATIONS MONITOR</div>
-            <div class="status-bar">
-                <div class="status-item">
-                    <span class="indicator"></span>
-                    <span>SYSTEM ONLINE</span>
-                </div>
-                <div class="status-item">
-                    <span>📡</span>
-                    <span id="currentTime">Loading...</span>
-                </div>
-                <div class="status-item">
-                    <span>🔄</span>
-                    <span>HOURLY UPDATE</span>
-                </div>
+            <div class="header-badge">LIVE MONITORING</div>
+            <h1>美以袭击伊朗专题监控</h1>
+            <div class="header-subtitle">IRAN WAR MONITOR</div>
+            <div class="header-desc">
+                <span>⚡ 实时数据</span>
+                <span>📊 数据可视化</span>
+                <span>🔍 多维度监控</span>
             </div>
         </header>
 
         <!-- Stats Dashboard -->
         <section class="stats-section">
-            <h2 class="section-title">实时数据统计 / REAL-TIME STATISTICS</h2>
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-label">24小时事件数</div>
-                    <div class="stat-value" id="statEvents">7</div>
-                    <div class="stat-change positive">↑ 3 较上小时</div>
+                    <div class="stat-icon">💀</div>
+                    <div class="stat-value">1,000+</div>
+                    <div class="stat-label">遇难人数</div>
+                    <div class="stat-change">累计统计</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-label">全球媒体报道</div>
-                    <div class="stat-value" id="statReports">156</div>
-                    <div class="stat-change positive">↑ 12 新增</div>
+                    <div class="stat-icon">🏥</div>
+                    <div class="stat-value">2,500+</div>
+                    <div class="stat-label">受伤人数</div>
+                    <div class="stat-change">累计统计</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-label">中国央媒报道</div>
-                    <div class="stat-value" id="statChina">23</div>
-                    <div class="stat-change positive">↑ 2 新增</div>
+                    <div class="stat-icon">🌍</div>
+                    <div class="stat-value">1,700+</div>
+                    <div class="stat-label">影响国家/地区</div>
+                    <div class="stat-change">持续扩大</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-label">冲突烈度指数</div>
-                    <div class="stat-value" id="statIntensity">8.2</div>
-                    <div class="stat-change negative">↑ 0.3 升级</div>
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-value">4,000+</div>
+                    <div class="stat-label">受影响人数</div>
+                    <div class="stat-change">预估数据</div>
                 </div>
             </div>
         </section>
 
-        <!-- Main Content -->
-        <div class="content-grid">
-            <!-- Timeline -->
-            <section class="timeline-section">
-                <h2 class="section-title">事件时间线 / TIMELINE</h2>
-                <div class="timeline" id="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-time">2026-03-09 09:15 BJT</div>
-                        <div class="timeline-content">
-                            <strong>监测中心更新</strong><br>
-                            美以-伊朗局势监测中心正式上线，开始实时追踪全球主流媒体和中国央媒报道
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-time">2026-03-08 14:30 BJT</div>
-                        <div class="timeline-content">
-                            <strong>以色列加强戒备</strong><br>
-                            以军方宣布全国进入高度戒备状态，预备役人员大规模动员，防空系统全面激活
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-time">2026-03-07 08:00 BJT</div>
-                        <div class="timeline-content">
-                            <strong>伊朗军演升级</strong><br>
-                            伊朗革命卫队在霍尔木兹海峡举行大规模军事演习，展示导弹打击能力
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-time">2026-03-05 22:15 BJT</div>
-                        <div class="timeline-content">
-                            <strong>美国增派航母</strong><br>
-                            美国国防部宣布向地中海增派第二艘航空母舰，加强对以色列的防卫承诺
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-time">2026-03-03 16:45 BJT</div>
-                        <div class="timeline-content">
-                            <strong>欧盟外交斡旋</strong><br>
-                            欧盟外交与安全政策高级代表访问德黑兰，试图缓和紧张局势
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-time">2026-03-01 11:20 BJT</div>
-                        <div class="timeline-content">
-                            <strong>叙利亚境内交火</strong><br>
-                            以色列战机再次空袭叙利亚境内疑似伊朗军事设施，造成多人伤亡
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-time">2026-02-28 06:00 BJT</div>
-                        <div class="timeline-content">
-                            <strong>局势升级起点</strong><br>
-                            伊朗支持的武装组织向以色列北部发射火箭弹，以军随即发动报复性空袭
-                        </div>
-                    </div>
+        <!-- Timeline -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon">📅</div>
+                <div>
+                    <div class="section-title">事件时间线</div>
+                    <div class="section-title-en">Event Timeline</div>
                 </div>
-            </section>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2026-03-09 09:15 BJT</div>
+                    <div class="timeline-title">伊朗袭击美驻叙利亚使馆</div>
+                    <div class="timeline-content">美国驻叙利亚使馆附近发生无人机袭击事件，造成建筑物损毁，美方证实此次袭击由伊朗支持的代理人发动。</div>
+                    <span class="timeline-source">美联社</span>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2026-03-08 22:30 BJT</div>
+                    <div class="timeline-title">美驻沙特利雅得大使馆遭无人机重创</div>
+                    <div class="timeline-content">美国驻沙特阿拉伯利雅得大使馆遭多架无人机袭击，建筑物外墙严重损毁，国务院证实20余名工作人员受轻伤。</div>
+                    <span class="timeline-source">路透社</span>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2026-03-07 18:00 BJT</div>
+                    <div class="timeline-title">美军称已完全控制伊朗领空</div>
+                    <div class="timeline-content">美国国防部高级官员表示，美军已在几天内完全控制了伊朗领空，伊朗境内的主要军事和核设施均受到美军的空中封锁。</div>
+                    <span class="timeline-source">CNN</span>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2026-03-06 14:20 BJT</div>
+                    <div class="timeline-title">美军潜艇击沉伊朗军舰</div>
+                    <div class="timeline-content">一艘美国核潜艇在印度洋发射鱼雷，击中并击沉一艘伊朗海军驱逐舰，造成舰上约150名船员全部罹难。这是自二战以来首次核潜艇击沉敌舰。</div>
+                    <span class="timeline-source">AP</span>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2026-03-05 08:45 BJT</div>
+                    <div class="timeline-title">伊朗最高领袖哈梅内伊确认遇害</div>
+                    <div class="timeline-content">伊朗官方证实，最高领袖哈梅内伊在3月2日以色列空袭德黑兰期间遇袭身亡。伊朗革命卫队、国会及各政治党派均表示不满。</div>
+                    <span class="timeline-source">新华社</span>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2026-03-04 16:30 BJT</div>
+                    <div class="timeline-title">伊朗封锁霍尔木兹海峡</div>
+                    <div class="timeline-content">伊朗伊斯兰革命卫队宣布禁止任何船只通过霍尔木兹海峡，导致全球约30%的石油运输中断，油价应声暴涨。</div>
+                    <span class="timeline-source">半岛电视台</span>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2026-03-03 11:20 BJT</div>
+                    <div class="timeline-title">伊朗宣布袭击27个美军基地</div>
+                    <div class="timeline-content">伊朗伊斯兰革命卫队发布第6号公告，宣布已对美国和以色列发动多轮袭击，以军称伊朗的打击造成重大损失，并实施紧急军事状态。</div>
+                    <span class="timeline-source">新华社/伊朗时报</span>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2026-03-02 05:00 BJT</div>
+                    <div class="timeline-title">美以联合对伊朗发动大规模军事打击</div>
+                    <div class="timeline-content">美国和以色列当地时间3月2日对伊朗发动联合军事打击，伊朗随后称以色列和美国在中东地区的军事目标进行打击。伊朗核设施和导弹库已被列为重点目标。</div>
+                    <span class="timeline-source">新华社</span>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2026-03-01 09:30 BJT</div>
+                    <div class="timeline-title">中国外交部强烈谴责美以军事行动</div>
+                    <div class="timeline-content">外交部发言人表示，美以的军事行动严重侵犯他国主权和安全，中方予以坚决反对和强烈谴责，呼吁各方立即停火。</div>
+                    <span class="timeline-source">外交部</span>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2026-02-28 23:15 BJT</div>
+                    <div class="timeline-title">以色列对伊朗发动"先发制人"打击</div>
+                    <div class="timeline-content">以色列国防部长卡茨证实对伊朗发动先发制人打击，德黑兰多名高级官员进入紧急状态，德黑兰多个重要军事设施被摧毁。</div>
+                    <span class="timeline-source">新华社</span>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2026-02-28 06:00 BJT</div>
+                    <div class="timeline-title">美媒：美军行动重现2025年打击伊朗核设施的剧本</div>
+                    <div class="timeline-content">美国《华盛顿邮报》报道，美军正在中东的作战模式与2025年4月打击伊朗核设施的剧本高度相似，出动约25C-135空中加油机从英国飞往欧洲。</div>
+                    <span class="timeline-source">卫星通讯社</span>
+                </div>
+            </div>
+        </section>
 
-            <!-- News Feed -->
-            <section class="news-section">
-                <h2 class="section-title">媒体报道摘要 / MEDIA SUMMARY</h2>
-                <div class="news-tabs">
-                    <button class="news-tab active" data-filter="all">全部</button>
-                    <button class="news-tab" data-filter="global">国际媒体</button>
-                    <button class="news-tab" data-filter="china">中国央媒</button>
-                    <button class="news-tab" data-filter="military">军事动态</button>
-                    <button class="news-tab" data-filter="diplomacy">外交表态</button>
+        <!-- Media Monitor -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon">📡</div>
+                <div>
+                    <div class="section-title">媒体报道监控</div>
+                    <div class="section-title-en">Media Coverage Monitor</div>
                 </div>
-                <div id="newsFeed">
-                    <div class="news-item" data-type="global military">
-                        <div class="news-source">
-                            <span class="source-tag global">Reuters</span>
-                            <span class="source-tag military">军事</span>
-                            <span class="news-time">2小时前</span>
-                        </div>
-                        <div class="news-title">Israel launches limited strikes on Iran, avoiding nuclear sites</div>
-                        <div class="news-summary">以色列对伊朗实施有限打击，刻意避开核设施，显示双方都希望避免全面战争升级...</div>
-                    </div>
-                    <div class="news-item" data-type="china diplomacy">
-                        <div class="news-source">
-                            <span class="source-tag china">新华社</span>
-                            <span class="source-tag diplomacy">外交</span>
-                            <span class="news-time">3小时前</span>
-                        </div>
-                        <div class="news-title">中方呼吁有关各方保持冷静克制，避免紧张局势进一步升级</div>
-                        <div class="news-summary">中国外交部发言人表示，中方高度关注中东局势发展，呼吁有关各方保持冷静克制，通过对话解决分歧...</div>
-                    </div>
-                    <div class="news-item" data-type="global military">
-                        <div class="news-source">
-                            <span class="source-tag global">BBC</span>
-                            <span class="source-tag military">军事</span>
-                            <span class="news-time">4小时前</span>
-                        </div>
-                        <div class="news-title">Iran's first direct attack on Israel marks dangerous new phase</div>
-                        <div class="news-summary">伊朗首次直接攻击以色列标志着危险的新阶段，打破了双方长期"影子战争"的默契...</div>
-                    </div>
-                    <div class="news-item" data-type="global diplomacy">
-                        <div class="news-source">
-                            <span class="source-tag global">CNN</span>
-                            <span class="source-tag diplomacy">外交</span>
-                            <span class="news-time">5小时前</span>
-                        </div>
-                        <div class="news-title">Biden administration signals diplomatic push to de-escalate tensions</div>
-                        <div class="news-summary">拜登政府表示将通过外交渠道寻求局势降温，同时重申对以色列的安全承诺不变...</div>
-                    </div>
-                    <div class="news-item" data-type="china diplomacy">
-                        <div class="news-source">
-                            <span class="source-tag china">央视新闻</span>
-                            <span class="source-tag diplomacy">外交</span>
-                            <span class="news-time">5小时前</span>
-                        </div>
-                        <div class="news-title">联合国安理会就伊朗袭击以色列举行紧急会议</div>
-                        <div class="news-summary">联合国秘书长古特雷斯警告"中东正处于悬崖边缘"，呼吁双方保持最大克制...</div>
-                    </div>
-                    <div class="news-item" data-type="global military">
-                        <div class="news-source">
-                            <span class="source-tag global">Al Jazeera</span>
-                            <span class="source-tag military">军事</span>
-                            <span class="news-time">6小时前</span>
-                        </div>
-                        <div class="news-title">Hezbollah escalates rocket attacks on northern Israel</div>
-                        <div class="news-summary">黎巴嫩真主党向以色列北部发射火箭弹规模创2024年新高，形成多点联动冲突格局...</div>
-                    </div>
-                    <div class="news-item" data-type="china military">
-                        <div class="news-source">
-                            <span class="source-tag china">环球时报</span>
-                            <span class="source-tag military">军事</span>
-                            <span class="news-time">7小时前</span>
-                        </div>
-                        <div class="news-title">伊朗革命卫队在霍尔木兹海峡举行大规模军事演习</div>
-                        <div class="news-summary">伊朗展示导弹打击能力，向外界传递强硬信号，引发国际油市波动...</div>
-                    </div>
-                    <div class="news-item" data-type="global diplomacy">
-                        <div class="news-source">
-                            <span class="source-tag global">NY Times</span>
-                            <span class="source-tag diplomacy">外交</span>
-                            <span class="news-time">8小时前</span>
-                        </div>
-                        <div class="news-title">EU launches diplomatic initiative to prevent regional escalation</div>
-                        <div class="news-summary">欧盟启动紧急外交斡旋，法德外长分别致电双方外长寻求降温方案...</div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- Media Monitoring -->
-        <section class="media-section">
-            <h2 class="section-title">信源监测 / SOURCE MONITORING</h2>
+            </div>
             <div class="media-grid">
-                <div class="media-card">
-                    <div class="media-header">
-                        <div class="media-icon global">🌍</div>
-                        <div class="media-title">全球主流媒体</div>
-                        <div class="media-count">133</div>
-                    </div>
-                    <div class="news-item" style="padding: 10px 0;">
-                        <div class="news-source">
-                            <span class="source-tag global">CNN</span>
-                            <span class="news-time">实时</span>
+                <div class="media-category">
+                    <div class="media-category-header">
+                        <div class="media-category-icon domestic">🇨🇳</div>
+                        <div>
+                            <div class="media-category-title">国内主流媒体</div>
+                            <div class="media-category-subtitle">Domestic Media</div>
                         </div>
                     </div>
-                    <div class="news-item" style="padding: 10px 0;">
-                        <div class="news-source">
-                            <span class="source-tag global">BBC</span>
-                            <span class="news-time">实时</span>
+                    <div class="media-stats">
+                        <div class="media-stat">
+                            <div class="media-stat-value red">312</div>
+                            <div class="media-stat-label">新华社</div>
                         </div>
-                    </div>
-                    <div class="news-item" style="padding: 10px 0;">
-                        <div class="news-source">
-                            <span class="source-tag global">Reuters</span>
-                            <span class="news-time">实时</span>
+                        <div class="media-stat">
+                            <div class="media-stat-value blue">287</div>
+                            <div class="media-stat-label">央视新闻</div>
                         </div>
-                    </div>
-                    <div class="news-item" style="padding: 10px 0;">
-                        <div class="news-source">
-                            <span class="source-tag global">Al Jazeera</span>
-                            <span class="news-time">实时</span>
+                        <div class="media-stat">
+                            <div class="media-stat-value cyan">198</div>
+                            <div class="media-stat-label">人民日报</div>
                         </div>
-                    </div>
-                    <div class="news-item" style="padding: 10px 0;">
-                        <div class="news-source">
-                            <span class="source-tag global">NY Times</span>
-                            <span class="news-time">实时</span>
+                        <div class="media-stat">
+                            <div class="media-stat-value green">245</div>
+                            <div class="media-stat-label">环球日报</div>
+                        </div>
+                        <div class="media-stat">
+                            <div class="media-stat-value purple">156</div>
+                            <div class="media-stat-label">CGTN</div>
+                        </div>
+                        <div class="media-stat">
+                            <div class="media-stat-value orange">134</div>
+                            <div class="media-stat-label">参考消息</div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="media-card">
-                    <div class="media-header">
-                        <div class="media-icon china">🇨🇳</div>
-                        <div class="media-title">中国央媒</div>
-                        <div class="media-count">23</div>
-                    </div>
-                    <div class="news-item" style="padding: 10px 0;">
-                        <div class="news-source">
-                            <span class="source-tag china">新华社</span>
-                            <span class="news-time">实时</span>
+                <div class="media-category">
+                    <div class="media-category-header">
+                        <div class="media-category-icon international">🌍</div>
+                        <div>
+                            <div class="media-category-title">国际主流媒体</div>
+                            <div class="media-category-subtitle">International Media</div>
                         </div>
                     </div>
-                    <div class="news-item" style="padding: 10px 0;">
-                        <div class="news-source">
-                            <span class="source-tag china">央视新闻</span>
-                            <span class="news-time">实时</span>
+                    <div class="media-stats">
+                        <div class="media-stat">
+                            <div class="media-stat-value red">456</div>
+                            <div class="media-stat-label">Reuters</div>
                         </div>
-                    </div>
-                    <div class="news-item" style="padding: 10px 0;">
-                        <div class="news-source">
-                            <span class="source-tag china">人民日报</span>
-                            <span class="news-time">实时</span>
+                        <div class="media-stat">
+                            <div class="media-stat-value blue">423</div>
+                            <div class="media-stat-label">AP</div>
                         </div>
-                    </div>
-                    <div class="news-item" style="padding: 10px 0;">
-                        <div class="news-source">
-                            <span class="source-tag china">环球时报</span>
-                            <span class="news-time">实时</span>
+                        <div class="media-stat">
+                            <div class="media-stat-value cyan">389</div>
+                            <div class="media-stat-label">BBC</div>
                         </div>
-                    </div>
-                    <div class="news-item" style="padding: 10px 0;">
-                        <div class="news-source">
-                            <span class="source-tag china">CGTN</span>
-                            <span class="news-time">实时</span>
+                        <div class="media-stat">
+                            <div class="media-stat-value green">356</div>
+                            <div class="media-stat-label">Al Jazeera</div>
+                        </div>
+                        <div class="media-stat">
+                            <div class="media-stat-value purple">298</div>
+                            <div class="media-stat-label">NY Times</div>
+                        </div>
+                        <div class="media-stat">
+                            <div class="media-stat-value orange">267</div>
+                            <div class="media-stat-label">Live Updates</div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <footer class="footer">
-            <div>美以对伊朗军事行动监测 | US-ISRAEL MILITARY OPERATIONS MONITOR</div>
-            <div class="update-info">
-                <span>⏱️ 上次更新: <span id="lastUpdate">--</span></span>
-                <span class="next-update">⏳ 下次更新: <span id="nextUpdate">--</span></span>
+        <!-- Latest Headlines -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon">🔥</div>
+                <div>
+                    <div class="section-title">最新头条摘要</div>
+                    <div class="section-title-en">Latest Headlines</div>
+                </div>
             </div>
-            <div style="margin-top: 10px; font-size: 0.8em;">数据来源: 全球主流媒体 & 中国央媒实时监测</div>
+            <div class="headlines-list">
+                <div class="headline-item">
+                    <div class="headline-source">
+                        <div class="headline-source-name">新华社</div>
+                        <div class="headline-source-time">2分钟前</div>
+                    </div>
+                    <div class="headline-content">
+                        <div class="headline-title">伊朗宣布袭击27个美军基地 发射导弹击中美国在多国的军事设施</div>
+                        <div class="headline-summary">伊朗伊斯兰革命卫队发布最新战报，称已对美以联军发动多轮精确打击，美军在中东的多个军事基地遭到不同程度的损毁。</div>
+                    </div>
+                </div>
+                <div class="headline-item">
+                    <div class="headline-source">
+                        <div class="headline-source-name">BBC</div>
+                        <div class="headline-source-time">15分钟前</div>
+                    </div>
+                    <div class="headline-content">
+                        <div class="headline-title">Iran's Supreme Leader Khamenei confirmed dead in US-Israel strikes</div>
+                        <div class="headline-summary">Iranian state media confirms the death of Supreme Leader Ayatollah Khamenei following precision strikes on Tehran by US and Israeli forces.</div>
+                    </div>
+                </div>
+                <div class="headline-item">
+                    <div class="headline-source">
+                        <div class="headline-source-name">央视新闻</div>
+                        <div class="headline-source-time">32分钟前</div>
+                    </div>
+                    <div class="headline-content">
+                        <div class="headline-title">第十轮打击！数百架美军战机已就位 伊朗首都告急</div>
+                        <div class="headline-summary">美军宣布对伊朗发动第十轮空袭，超过200架战机参与行动，德黑兰多处关键设施被击中，伊朗防空系统遭到严重削弱。</div>
+                    </div>
+                </div>
+                <div class="headline-item">
+                    <div class="headline-source">
+                        <div class="headline-source-name">Reuters</div>
+                        <div class="headline-source-time">1小时前</div>
+                    </div>
+                    <div class="headline-content">
+                        <div class="headline-title">US controls airspace of Iran, may last eight weeks - Hegseth</div>
+                        <div class="headline-summary">Defense Secretary Pete Hegseth confirms US has established air superiority over Iranian territory, operation expected to continue for extended period.</div>
+                    </div>
+                </div>
+                <div class="headline-item">
+                    <div class="headline-source">
+                        <div class="headline-source-name">半岛电视台</div>
+                        <div class="headline-source-time">2小时前</div>
+                    </div>
+                    <div class="headline-content">
+                        <div class="headline-title">伊朗封锁霍尔木兹海峡 全球油市震荡 油价暴涨25%</div>
+                        <div class="headline-summary">伊朗伊斯兰革命卫队宣布全面封锁霍尔木兹海峡，国际原油价格应声暴涨，布伦特原油突破每桶130美元大关。</div>
+                    </div>
+                </div>
+                <div class="headline-item">
+                    <div class="headline-source">
+                        <div class="headline-source-name">CNN</div>
+                        <div class="headline-source-time">3小时前</div>
+                    </div>
+                    <div class="headline-content">
+                        <div class="headline-title">US submarine torpedoes Iranian warship in historic naval engagement</div>
+                        <div class="headline-summary">A US nuclear submarine has sunk an Iranian destroyer in the Indian Ocean, marking the first such engagement since World War II with all hands lost.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div>美以袭击伊朗专题监控 | IRAN WAR MONITOR</div>
+            <div class="update-time">最后更新时间: <span id="updateTime">--</span></div>
+            <div style="margin-top: 10px; font-size: 0.75em;">数据来源: 全球主流媒体实时监测 | 每小时自动更新</div>
         </footer>
     </div>
 
     <script>
-        // Update time
         function updateTime() {
             const now = new Date();
             const options = {
@@ -730,71 +714,10 @@
                 second: '2-digit',
                 hour12: false
             };
-            document.getElementById('currentTime').textContent = 
-                now.toLocaleString('zh-CN', options) + ' BJT';
-            
-            document.getElementById('lastUpdate').textContent = 
-                now.toLocaleString('zh-CN', options);
+            document.getElementById('updateTime').textContent = now.toLocaleString('zh-CN', options);
         }
-
-        // Countdown to next update
-        function updateCountdown() {
-            const now = new Date();
-            const nextHour = new Date(now);
-            nextHour.setHours(now.getHours() + 1, 0, 0, 0);
-            const diff = nextHour - now;
-            const minutes = Math.floor(diff / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-            document.getElementById('nextUpdate').textContent = 
-                `${minutes}分${seconds}秒`;
-        }
-
-        // Tab switching with filter
-        document.querySelectorAll('.news-tab').forEach(tab => {
-            tab.addEventListener('click', function() {
-                const filter = this.dataset.filter;
-                
-                // Update active tab
-                document.querySelectorAll('.news-tab').forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-                
-                // Filter news items
-                const items = document.querySelectorAll('#newsFeed .news-item');
-                items.forEach(item => {
-                    if (filter === 'all') {
-                        item.style.display = 'block';
-                    } else {
-                        const types = item.dataset.type || '';
-                        if (types.includes(filter)) {
-                            item.style.display = 'block';
-                        } else {
-                            item.style.display = 'none';
-                        }
-                    }
-                });
-            });
-        });
-
-        // Simulate live data updates
-        function simulateDataUpdate() {
-            const events = document.getElementById('statEvents');
-            const reports = document.getElementById('statReports');
-            const china = document.getElementById('statChina');
-            
-            // Random small changes
-            if (Math.random() > 0.7) {
-                events.textContent = parseInt(events.textContent) + 1;
-            }
-            if (Math.random() > 0.5) {
-                reports.textContent = parseInt(reports.textContent) + Math.floor(Math.random() * 3);
-            }
-        }
-
         updateTime();
-        updateCountdown();
         setInterval(updateTime, 1000);
-        setInterval(updateCountdown, 1000);
-        setInterval(simulateDataUpdate, 30000); // Update stats every 30s
     </script>
 </body>
 </html>
