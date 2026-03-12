@@ -439,7 +439,7 @@
                     <div class="stat-icon">💀</div>
                     <div class="stat-value">1,332</div>
                     <div class="stat-label">伊朗遇难人数</div>
-                    <div class="stat-change">↑ 85 较昨日</div>
+                    <div class="stat-change">战争第13天</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon">🏥</div>
@@ -451,13 +451,13 @@
                     <div class="stat-icon">🌍</div>
                     <div class="stat-value">10+</div>
                     <div class="stat-label">受影响国家/地区</div>
-                    <div class="stat-change">全部海湾国家</div>
+                    <div class="stat-change">霍尔木兹成战场</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon">📰</div>
-                    <div class="stat-value">3,856</div>
+                    <div class="stat-value">4,156</div>
                     <div class="stat-label">今日报道数</div>
-                    <div class="stat-change">实时更新</div>
+                    <div class="stat-change">+300 较昨日</div>
                 </div>
             </div>
         </section>
@@ -472,6 +472,20 @@
                 </div>
             </div>
             <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2026-03-12 14:00 BJT</div>
+                    <div class="timeline-title">冲突第13天：伊朗提出结束战事"唯一途径"</div>
+                    <div class="timeline-content">伊朗总统佩泽希齐扬表示，结束冲突的"唯一途径"是承认伊朗合法权利、支付赔偿及国际社会提供防再侵略保障。以军12日凌晨对德黑兰发动"大规模空袭"，伊朗实施第40轮军事行动打击以色列50多个目标。</div>
+                    <span class="timeline-source">新华社/央视新闻</span>
+                    <a href="https://www.news.cn/world/20260312/bb618b2bc82f4c48b8cc196e35c7274b/c.html" target="_blank" class="timeline-link">查看原文 →</a>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2026-03-12 08:00 BJT</div>
+                    <div class="timeline-title">美军威胁袭击民用港口 伊朗强硬回应</div>
+                    <div class="timeline-content">美军中央司令部称伊朗将军舰部署在霍尔木兹海峡民用港口内，威胁这些港口将成为"合法军事目标"。伊朗军方强硬回应：若伊朗港口遭袭，本地区所有港口都将成为伊朗"合法目标"。马克龙称霍尔木兹海峡已成"战场"。</div>
+                    <span class="timeline-source">新华社/央广网</span>
+                    <a href="https://www.cnr.cn/newscenter/sq/20260312/t20260312_527549191.shtml" target="_blank" class="timeline-link">查看原文 →</a>
+                </div>
                 <div class="timeline-item">
                     <div class="timeline-date">2026-03-11 07:35 BJT</div>
                     <div class="timeline-title">美以分歧显现：以色列空袭引发美方不满</div>
@@ -652,10 +666,32 @@
                 </div>
             </div>
             <div class="headlines-list">
+                <a href="https://www.news.cn/world/20260312/bb618b2bc82f4c48b8cc196e35c7274b/c.html" target="_blank" class="headline-item">
+                    <div class="headline-source">
+                        <div class="headline-source-name">新华社</div>
+                        <div class="headline-source-time">3月12日</div>
+                    </div>
+                    <div class="headline-content">
+                        <div class="headline-title">冲突进入第13天，伊朗总统提出结束冲突"唯一途径"</div>
+                        <div class="headline-summary">伊朗总统佩泽希齐扬表示，结束战事的"唯一途径"是承认伊朗合法权利、支付赔偿及国际社会提供防再侵略保障。以军12日凌晨对德黑兰发动"大规模空袭"。</div>
+                        <span class="headline-link">查看原文 →</span>
+                    </div>
+                </a>
+                <a href="https://www.cnr.cn/newscenter/sq/20260312/t20260312_527549191.shtml" target="_blank" class="headline-item">
+                    <div class="headline-source">
+                        <div class="headline-source-name">央广网</div>
+                        <div class="headline-source-time">3月12日</div>
+                    </div>
+                    <div class="headline-content">
+                        <div class="headline-title">美以伊战争持续13日 霍尔木兹海峡"已成战场"</div>
+                        <div class="headline-summary">马克龙表示霍尔木兹海峡已成"战场"，国际能源署成员国同意释放4亿桶战略石油储备。美军威胁袭击伊朗民用港口，伊朗强硬回应称所有地区港口将成为其"合法目标"。</div>
+                        <span class="headline-link">查看原文 →</span>
+                    </div>
+                </a>
                 <a href="https://www.guancha.cn/internation/2026_03_09_809317.shtml" target="_blank" class="headline-item">
                     <div class="headline-source">
                         <div class="headline-source-name">观察者网</div>
-                        <div class="headline-source-time">10分钟前</div>
+                        <div class="headline-source-time">3月11日</div>
                     </div>
                     <div class="headline-content">
                         <div class="headline-title">美以分歧显现：以军空袭让德黑兰下起"黑雨" 美方私下说"WTF"</div>
@@ -767,17 +803,17 @@
         const reportChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['2/28', '3/1', '3/2', '3/3', '3/4', '3/5', '3/6', '3/7', '3/8', '3/9', '3/10', '3/11'],
+                labels: ['2/28', '3/1', '3/2', '3/3', '3/4', '3/5', '3/6', '3/7', '3/8', '3/9', '3/10', '3/11', '3/12'],
                 datasets: [{
                     label: '国内媒体报道',
-                    data: [456, 589, 892, 1023, 1256, 1389, 1156, 987, 823, 1332, 1245, 856],
+                    data: [456, 589, 892, 1023, 1256, 1389, 1156, 987, 823, 1332, 1245, 856, 1123],
                     backgroundColor: 'rgba(255, 59, 48, 0.8)',
                     borderColor: '#ff3b30',
                     borderWidth: 1,
                     borderRadius: 4
                 }, {
                     label: '国际媒体报道',
-                    data: [678, 823, 1156, 1389, 1567, 1789, 1456, 1234, 1098, 1915, 1689, 1123],
+                    data: [678, 823, 1156, 1389, 1567, 1789, 1456, 1234, 1098, 1915, 1689, 1123, 1456],
                     backgroundColor: 'rgba(10, 132, 255, 0.8)',
                     borderColor: '#0a84ff',
                     borderWidth: 1,
